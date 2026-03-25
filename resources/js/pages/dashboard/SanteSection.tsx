@@ -49,6 +49,7 @@ export default function SanteSection({ covid, accidents, accidentsByType, hivCov
     );
 
     const latestCovid = covid[covid.length - 1];
+    const latestVaccines = [...covid].reverse().find((r) => r.personnesVaccinees > 0);
     const latestAccident = accidents[accidents.length - 1];
 
     const accidentTypeData = useMemo(() => {
@@ -88,7 +89,7 @@ export default function SanteSection({ covid, accidents, accidentsByType, hivCov
                 <StatCard
                     icon="💉"
                     label="Personnes vaccinées"
-                    value={fmt(latestCovid?.personnesVaccinees ?? 0)}
+                    value={fmt(latestVaccines?.personnesVaccinees ?? 0)}
                     sub="Total cumulé"
                     color={GREEN}
                 />

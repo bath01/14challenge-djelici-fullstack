@@ -33,8 +33,9 @@ export default function SecuriteSection({ military }: Props) {
         military
             .filter((r) => r.categorie === 'Effectif de Policiers' && r.effectif !== null)
             .forEach((r) => {
-                if (!map[r.annee]) map[r.annee] = { annee: r.annee, Hommes: 10, Femmes: 0 };
-                map[r.annee][r.genre as 'Hommes' | 'Femmes'] = r.effectif ?? 0;
+                if (!map[r.annee]) map[r.annee] = { annee: r.annee, Hommes: 0, Femmes: 0 };
+                const key = r.genre === 'Homme' ? 'Hommes' : 'Femmes';
+                map[r.annee][key] = r.effectif ?? 0;
             });
         return Object.values(map).sort((a, b) => a.annee - b.annee);
     }, [military]);

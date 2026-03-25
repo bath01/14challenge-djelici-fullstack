@@ -88,7 +88,7 @@ class DashboardController extends Controller
 
     private function parseAccidents(): array
     {
-        $rows = $this->readCsv(base_path("data/health/Evolution des accidents de la route de 2000 à 2020.csv"));
+        $rows = $this->readCsv(base_path('data/health/Evolution des accidents de la route de 2000 à 2020.csv'));
 
         return array_map(fn ($row) => [
             'annee' => (int) $row['Année'],
@@ -211,7 +211,7 @@ class DashboardController extends Controller
             rewind($handle);
         }
 
-        $headers = fgetcsv($handle);
+        $headers = fgetcsv($handle, 0, ',', '"', '');
         if ($headers === false) {
             fclose($handle);
 
@@ -221,10 +221,20 @@ class DashboardController extends Controller
         // Clean header names
         $headers = array_map(fn ($h) => trim((string) $h, " \t\n\r\0\x0B\"\u{FEFF}"), $headers);
 
-        while (($data = fgetcsv($handle)) !== false) {
-            if (count($data) !== count($headers)) {
+        $headerCount = count($headers);
+
+        while (($data = fgetcsv($handle, 0, ',', '"', '')) !== false) {
+            $dataCount = count($data);
+
+            if ($dataCount > $headerCount) {
                 continue;
             }
+
+            // Pad short rows with empty strings so all columns are present
+            if ($dataCount < $headerCount) {
+                $data = array_pad($data, $headerCount, '');
+            }
+
             $rows[] = array_combine($headers, $data);
         }
 
