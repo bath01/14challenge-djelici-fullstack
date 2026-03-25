@@ -13,7 +13,8 @@ export default function Dashboard({ economie, education, sante, securite, sport 
 
     return (
         <>
-            <Head title="Djelici" />
+            <Head title="Djelici">
+            </Head>
 
             <div className="min-h-screen bg-[#FFF8F0]">
                 <header className="relative overflow-hidden bg-[#F77F00]">

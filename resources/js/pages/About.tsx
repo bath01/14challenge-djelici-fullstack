@@ -66,7 +66,8 @@ const STACK = [
 export default function About() {
     return (
         <>
-            <Head title="À propos — Djelici" />
+            <Head title="À propos — Djelici">
+            </Head>
 
             <div className="min-h-screen bg-[#FFF8F0]">
                 {/* Header */}
