@@ -67,7 +67,9 @@ RUN apk add --no-cache \
     sqlite-dev \
     libpng \
     libpng-dev \
+    libjpeg-turbo \
     libjpeg-turbo-dev \
+    freetype \
     freetype-dev \
     zip \
     unzip \
@@ -94,8 +96,9 @@ COPY --chown=www-data:www-data . .
 COPY --chown=www-data:www-data --from=frontend /app/public/build public/build
 COPY --chown=www-data:www-data --from=composer-prod /app/vendor vendor/
 
-# Set storage permissions
-RUN mkdir -p storage/logs storage/framework/cache storage/framework/sessions storage/framework/views \
+# Set storage permissions and clear cached bootstrap files (may reference dev packages)
+RUN rm -f bootstrap/cache/packages.php bootstrap/cache/services.php \
+    && mkdir -p storage/logs storage/framework/cache storage/framework/sessions storage/framework/views \
     && chown -R www-data:www-data storage bootstrap/cache \
     && chmod -R 775 storage bootstrap/cache
 

@@ -1,4 +1,4 @@
-import { Head } from '@inertiajs/react';
+import { Head, Link } from '@inertiajs/react';
 import { useState } from 'react';
 import { TABS, type TabId } from './dashboard/constants';
 import EconomieSection from './dashboard/EconomieSection';
@@ -23,20 +23,28 @@ export default function Dashboard({ economie, education, sante, securite, sport 
                         <div className="w-1/3 bg-[#009A44]/60" />
                     </div>
                     <div className="relative mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-                        <div className="flex items-center gap-5">
-                            <div className="hidden h-12 w-8 shrink-0 overflow-hidden rounded shadow-lg sm:flex">
-                                <div className="flex-1 bg-[#F77F00]" />
-                                <div className="flex-1 bg-white" />
-                                <div className="flex-1 bg-[#009A44]" />
+                        <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-5">
+                                <div className="hidden h-12 w-8 shrink-0 overflow-hidden rounded shadow-lg sm:flex">
+                                    <div className="flex-1 bg-[#F77F00]" />
+                                    <div className="flex-1 bg-white" />
+                                    <div className="flex-1 bg-[#009A44]" />
+                                </div>
+                                <div>
+                                    <h1 className="text-2xl font-extrabold tracking-tight text-white sm:text-3xl">
+                                        Djelici
+                                    </h1>
+                                    <p className="mt-0.5 text-sm font-medium text-orange-100">
+                                        Côte d'Ivoire — Données statistiques nationales
+                                    </p>
+                                </div>
                             </div>
-                            <div>
-                                <h1 className="text-2xl font-extrabold tracking-tight text-white sm:text-3xl">
-                                    Djelici
-                                </h1>
-                                <p className="mt-0.5 text-sm font-medium text-orange-100">
-                                    Côte d'Ivoire — Données statistiques nationales
-                                </p>
-                            </div>
+                            <Link
+                                href="/about"
+                                className="flex items-center gap-2 rounded-xl bg-white/20 px-4 py-2 text-sm font-medium text-white backdrop-blur-sm transition hover:bg-white/30"
+                            >
+                                À propos
+                            </Link>
                         </div>
                     </div>
                 </header>
