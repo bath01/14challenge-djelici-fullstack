@@ -28,11 +28,11 @@ export const KEY_INDICATORS = [
 ];
 
 export const TABS = [
-    { id: 'economie', label: 'Économie', icon: '📈' },
-    { id: 'education', label: 'Éducation', icon: '🎓' },
-    { id: 'sante', label: 'Santé', icon: '🏥' },
-    { id: 'securite', label: 'Sécurité', icon: '🛡️' },
-    { id: 'sport', label: 'Sport', icon: '⚽' },
+    { id: 'economie', label: 'Économie' },
+    { id: 'education', label: 'Éducation' },
+    { id: 'sante', label: 'Santé' },
+    { id: 'securite', label: 'Sécurité' },
+    { id: 'sport', label: 'Sport' },
 ] as const;
 
 export type TabId = (typeof TABS)[number]['id'];

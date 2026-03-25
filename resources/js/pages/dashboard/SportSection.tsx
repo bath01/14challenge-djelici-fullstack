@@ -12,6 +12,7 @@ import {
     XAxis,
     YAxis,
 } from 'recharts';
+import { Calendar, Landmark, MapPin, Trophy, Users, Wrench } from 'lucide-react';
 import { BLUE, fmt, GOLD, GREEN, ORANGE, PALETTE } from './constants';
 import type { StadiumRow } from './types';
 
@@ -26,11 +27,11 @@ export default function SportSection({ stadiums }: Props) {
     return (
         <div className="space-y-6">
             <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-                <StatCard icon="🏟️" label="Stades CAN 2023" value={`${stadiums.length}`} sub="Côte d'Ivoire" color={ORANGE} />
-                <StatCard icon="👥" label="Capacité totale" value={fmt(totalCapacity)} sub="Tous stades" color={GREEN} />
-                <StatCard icon="🥇" label="Plus grand stade" value={fmt(maxCap)} sub="Stade Olympique" color={GOLD} />
+                <StatCard icon={Landmark} label="Stades CAN 2023" value={`${stadiums.length}`} sub="Côte d'Ivoire" color={ORANGE} />
+                <StatCard icon={Users} label="Capacité totale" value={fmt(totalCapacity)} sub="Tous stades" color={GREEN} />
+                <StatCard icon={Trophy} label="Plus grand stade" value={fmt(maxCap)} sub="Stade Olympique" color={GOLD} />
                 <StatCard
-                    icon="🏙️"
+                    icon={MapPin}
                     label="Villes hôtes"
                     value={`${new Set(stadiums.map((s) => s.ville)).size}`}
                     sub="Régions du pays"
@@ -91,10 +92,17 @@ export default function SportSection({ stadiums }: Props) {
                             </div>
                             <div className="mb-3 flex flex-wrap gap-2 text-xs text-stone-500 dark:text-stone-400">
                                 <span className="flex items-center gap-1">
-                                    📍 <span className="font-medium text-stone-700 dark:text-stone-300">{st.ville}</span>
+                                    <MapPin size={11} className="shrink-0" />
+                                    <span className="font-medium text-stone-700 dark:text-stone-300">{st.ville}</span>
                                 </span>
-                                <span>🗓️ Ouvert en {st.ouverture}</span>
-                                {st.renovation && <span>🔧 Rénové en {st.renovation}</span>}
+                                <span className="flex items-center gap-1">
+                                    <Calendar size={11} className="shrink-0" /> Ouvert en {st.ouverture}
+                                </span>
+                                {st.renovation && (
+                                    <span className="flex items-center gap-1">
+                                        <Wrench size={11} className="shrink-0" /> Rénové en {st.renovation}
+                                    </span>
+                                )}
                             </div>
                             <div className="mb-1 flex items-center justify-between text-xs">
                                 <span className="text-stone-500 dark:text-stone-400">Capacité</span>

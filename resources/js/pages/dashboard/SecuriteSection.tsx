@@ -16,6 +16,7 @@ import {
     XAxis,
     YAxis,
 } from 'recharts';
+import { PieChart as PieChartLucide, Shield, ShieldCheck, TrendingUp } from 'lucide-react';
 import { BLUE, fmt, GOLD, GREEN, ORANGE, PALETTE, TEAL } from './constants';
 import type { MilitaryRow } from './types';
 
@@ -74,23 +75,23 @@ export default function SecuriteSection({ military }: Props) {
     return (
         <div className="space-y-6">
             <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-                <StatCard icon="👮" label="Total policiers (2020)" value={fmt(totalPolice)} sub="Effectif total" color={ORANGE} />
+                <StatCard icon={Shield} label="Total policiers (2020)" value={fmt(totalPolice)} sub="Effectif total" color={ORANGE} />
                 <StatCard
-                    icon="👮‍♀️"
+                    icon={ShieldCheck}
                     label="Policières femmes"
                     value={fmt(latest?.Femmes ?? 0)}
                     sub="Effectif féminin"
                     color={TEAL}
                 />
                 <StatCard
-                    icon="📊"
+                    icon={PieChartLucide}
                     label="Part des femmes"
                     value={`${pctFemmes.toFixed(1)}%`}
                     sub="Police nationale"
                     color={GREEN}
                 />
                 <StatCard
-                    icon="📈"
+                    icon={TrendingUp}
                     label="Croissance féminine"
                     value={`+${growthFemmes.toFixed(0)}%`}
                     sub="Depuis 2011"

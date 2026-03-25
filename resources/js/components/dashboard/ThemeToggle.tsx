@@ -1,3 +1,5 @@
+import { Moon, Sun } from 'lucide-react';
+
 interface ThemeToggleProps {
     isDark: boolean;
     onToggle: () => void;
@@ -8,9 +10,9 @@ export default function ThemeToggle({ isDark, onToggle }: ThemeToggleProps) {
         <button
             onClick={onToggle}
             title={isDark ? 'Passer en mode clair' : 'Passer en mode sombre'}
-            className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/20 text-base backdrop-blur-sm transition hover:bg-white/30 cursor-pointer"
+            className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-xl bg-white/20 text-white backdrop-blur-sm transition hover:bg-white/30"
         >
-            {isDark ? '☀️' : '🌙'}
+            {isDark ? <Sun size={18} /> : <Moon size={18} />}
         </button>
     );
 }

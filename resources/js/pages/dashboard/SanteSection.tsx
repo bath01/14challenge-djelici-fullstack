@@ -17,6 +17,7 @@ import {
     XAxis,
     YAxis,
 } from 'recharts';
+import { Biohazard, Car, HeartOff, Syringe } from 'lucide-react';
 import { fmt, GREEN, ORANGE, PALETTE, RED } from './constants';
 import type { AccidentRow, AccidentTypeRow, CovidRow, HivRow } from './types';
 
@@ -73,28 +74,28 @@ export default function SanteSection({ covid, accidents, accidentsByType, hivCov
         <div className="space-y-6">
             <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
                 <StatCard
-                    icon="🦠"
+                    icon={Biohazard}
                     label="Cas COVID totaux"
                     value={fmt(latestCovid?.totalCas ?? 0)}
                     sub="Côte d'Ivoire"
                     color={RED}
                 />
                 <StatCard
-                    icon="💀"
+                    icon={HeartOff}
                     label="Décès COVID"
                     value={fmt(latestCovid?.totalDeces ?? 0)}
                     sub={latestCovid?.date}
                     color="#B71C1C"
                 />
                 <StatCard
-                    icon="💉"
+                    icon={Syringe}
                     label="Personnes vaccinées"
                     value={fmt(latestVaccines?.personnesVaccinees ?? 0)}
                     sub="Total cumulé"
                     color={GREEN}
                 />
                 <StatCard
-                    icon="🚗"
+                    icon={Car}
                     label="Accidents de route (2020)"
                     value={fmt(latestAccident?.effectif ?? 0)}
                     sub="Évolution 2000–2020"

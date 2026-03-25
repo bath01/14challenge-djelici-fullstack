@@ -1,8 +1,18 @@
 import { Head, Link } from '@inertiajs/react';
+import { GraduationCap, Heart, Shield, Trophy, TrendingUp } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 import { useState } from 'react';
 import ThemeToggle from '@/components/dashboard/ThemeToggle';
 import { useTheme } from '@/hooks/useTheme';
 import { TABS, type TabId } from './dashboard/constants';
+
+const TAB_ICONS: Record<TabId, LucideIcon> = {
+    economie: TrendingUp,
+    education: GraduationCap,
+    sante: Heart,
+    securite: Shield,
+    sport: Trophy,
+};
 import EconomieSection from './dashboard/EconomieSection';
 import EducationSection from './dashboard/EducationSection';
 import SanteSection from './dashboard/SanteSection';
@@ -58,19 +68,22 @@ export default function Dashboard({ economie, education, sante, securite, sport 
                 <div className="sticky top-0 z-10 border-b border-orange-100 bg-white shadow-sm dark:border-stone-800 dark:bg-stone-900">
                     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                         <nav className="flex overflow-x-auto">
-                            {TABS.map((tab) => (
-                                <button
-                                    key={tab.id}
-                                    onClick={() => setActiveTab(tab.id)}
-                                    className={`flex cursor-pointer shrink-0 items-center gap-2 border-b-2 px-5 py-4 text-sm font-medium transition-colors ${activeTab === tab.id
-                                            ? 'border-[#F77F00] text-[#F77F00]'
-                                            : 'border-transparent text-stone-500 hover:border-orange-200 hover:text-stone-700 dark:text-stone-400 dark:hover:text-stone-200'
-                                        }`}
-                                >
-                                    <span>{tab.icon}</span>
-                                    <span>{tab.label}</span>
-                                </button>
-                            ))}
+                            {TABS.map((tab) => {
+                                const Icon = TAB_ICONS[tab.id];
+                                return (
+                                    <button
+                                        key={tab.id}
+                                        onClick={() => setActiveTab(tab.id)}
+                                        className={`flex cursor-pointer shrink-0 items-center gap-2 border-b-2 px-5 py-4 text-sm font-medium transition-colors ${activeTab === tab.id
+                                                ? 'border-[#F77F00] text-[#F77F00]'
+                                                : 'border-transparent text-stone-500 hover:border-orange-200 hover:text-stone-700 dark:text-stone-400 dark:hover:text-stone-200'
+                                            }`}
+                                    >
+                                        <Icon size={15} />
+                                        <span>{tab.label}</span>
+                                    </button>
+                                );
+                            })}
                         </nav>
                     </div>
                 </div>

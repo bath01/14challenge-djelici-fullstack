@@ -16,6 +16,7 @@ import {
     XAxis,
     YAxis,
 } from 'recharts';
+import { Building, Globe, Home, TrendingUp } from 'lucide-react';
 import { BLUE, fmt, GOLD, GREEN, KEY_INDICATORS, ORANGE } from './constants';
 import type { PopulationRow, WorldBankEntry } from './types';
 
@@ -38,28 +39,28 @@ export default function EconomieSection({ population, worldBank }: Props) {
         <div className="space-y-6">
             <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
                 <StatCard
-                    icon="🏙️"
+                    icon={Building}
                     label="Population Abidjan (2021)"
                     value={fmt(latestPop?.abidjan ?? 0)}
                     sub="Recensement RGPH"
                     color={ORANGE}
                 />
                 <StatCard
-                    icon="🏘️"
+                    icon={Home}
                     label="Population Bouaké (2021)"
                     value={fmt(latestPop?.bouake ?? 0)}
                     sub="Recensement RGPH"
                     color={GREEN}
                 />
                 <StatCard
-                    icon="📊"
+                    icon={TrendingUp}
                     label="Croissance PIB"
                     value={`${latestGdp?.valeur?.toFixed(1) ?? '—'}%`}
                     sub={`En ${latestGdp?.annee ?? ''}`}
                     color={GOLD}
                 />
                 <StatCard
-                    icon="🌍"
+                    icon={Globe}
                     label="Indicateurs BM"
                     value={`${Object.keys(worldBank).length}`}
                     sub="Banque Mondiale"

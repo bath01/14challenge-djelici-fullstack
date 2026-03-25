@@ -14,6 +14,7 @@ import {
     XAxis,
     YAxis,
 } from 'recharts';
+import { BookOpen, GraduationCap, School, Users } from 'lucide-react';
 import { BLUE, fmt, GOLD, GREEN, ORANGE, TEAL } from './constants';
 import type { EducationPeriodRow, EducationRegionRow, TeacherRow } from './types';
 
@@ -76,28 +77,28 @@ export default function EducationSection({ teachers, byRegion, byPeriod }: Props
         <div className="space-y-6">
             <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
                 <StatCard
-                    icon="👩‍🏫"
+                    icon={GraduationCap}
                     label="Total enseignants (Public)"
                     value={fmt(totalTeachers)}
                     sub="Secteur public"
                     color={ORANGE}
                 />
                 <StatCard
-                    icon="♀️"
+                    icon={Users}
                     label="Part des femmes enseignantes"
                     value={`${((totalFemmes / totalTeachers) * 100).toFixed(0)}%`}
                     sub="Enseignement public"
                     color={TEAL}
                 />
                 <StatCard
-                    icon="📚"
+                    icon={BookOpen}
                     label="Élèves (primaire, 12 DREN)"
                     value={fmt(totalEleves)}
                     sub="Top 12 régions"
                     color={GREEN}
                 />
                 <StatCard
-                    icon="🏫"
+                    icon={School}
                     label="Disciplines enseignées"
                     value={`${teachersData.length}`}
                     sub="Éducation publique"
