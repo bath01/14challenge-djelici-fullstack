@@ -1,0 +1,53 @@
+Discipline,Enseignement,Genre,Effectif
+Lettres modernes,Public,Femmes,650
+Histoire/Géographie,Public,Femmes,229
+Anglais,Public,Femmes,149
+Allemand,Public,Femmes,75
+Espagnol,Public,Femmes,218
+Mathématiques,Public,Femmes,83
+Sciences physiques,Public,Femmes,62
+SVT,Public,Femmes,199
+Musique,Public,Femmes,101
+Dessin,Public,Femmes,70
+EPS,Public,Femmes,160
+Philosophie,Public,Femmes,47
+Autres,Public,Femmes,8
+Lettres modernes,Public,Hommes,1535
+Histoire/Géographie,Public,Hommes,1309
+Anglais,Public,Hommes,1223
+Allemand,Public,Hommes,485
+Espagnol,Public,Hommes,445
+Mathématiques,Public,Hommes,1907
+Sciences physiques,Public,Hommes,1885
+SVT,Public,Hommes,1421
+Musique,Public,Hommes,219
+Dessin,Public,Hommes,394
+EPS,Public,Hommes,799
+Philosophie,Public,Hommes,346
+Autres,Public,Hommes,26
+Lettres modernes,Privé,Femmes,435
+Histoire/Géographie,Privé,Femmes,136
+Anglais,Privé,Femmes,124
+Allemand,Privé,Femmes,69
+Espagnol,Privé,Femmes,197
+Mathématiques,Privé,Femmes,47
+Sciences physiques,Privé,Femmes,22
+SVT,Privé,Femmes,71
+Musique,Privé,Femmes,6
+Dessin,Privé,Femmes,4
+EPS,Privé,Femmes,67
+Philosophie,Privé,Femmes,27
+Autres,Privé,Femmes,34
+Lettres modernes,Privé,Hommes,1834
+Histoire/Géographie,Privé,Hommes,1539
+Anglais,Privé,Hommes,1445
+Allemand,Privé,Hommes,627
+Espagnol,Privé,Hommes,640
+Mathématiques,Privé,Hommes,2129
+Sciences physiques,Privé,Hommes,1568
+SVT,Privé,Hommes,1404
+Musique,Privé,Hommes,53
+Dessin,Privé,Hommes,56
+EPS,Privé,Hommes,1056
+Philosophie,Privé,Hommes,664
+Autres,Privé,Hommes,282
